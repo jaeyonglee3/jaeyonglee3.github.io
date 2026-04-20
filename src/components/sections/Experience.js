@@ -20,7 +20,7 @@ import { useState } from 'react';
 import { FaGithub } from 'react-icons/fa';
 import { Button } from '@chakra-ui/react';
 
-const ProjectCard = ({ title, subtitle, description, image, projectLink, onImageClick }) => {
+const ExperienceCard = ({ title, subtitle, description, image, projectLink, onImageClick }) => {
     const { colorMode } = useColorMode();
 
     const cardStyle = {
@@ -87,7 +87,7 @@ const ProjectCard = ({ title, subtitle, description, image, projectLink, onImage
     );
 };
 
-export default function Projects() {
+export default function Experience() {
     const [selectedImage, setSelectedImage] = useState(null);
     const [selectedTitle, setSelectedTitle] = useState('');
     const { isOpen, onOpen, onClose } = useDisclosure();
@@ -100,61 +100,45 @@ export default function Projects() {
 
     const cards = [
         {
-            title: 'Caspr',
-            subtitle: 'Next.js, Firebase, TypeScript, React, Three.js, Vercel',
+            title: 'PointClickCare (Internship)',
+            subtitle: 'Software Engineer ⋅ Jan 2025 - Aug 2025',
             description:
-                'Interactive web app and collaboration platform for exploring and analyzing causal diagrams in 3D.',
-            image: '/images/caspr-ui.jpg',
-            projectLink: 'https://github.com/jaeyonglee3/Caspr',
+                'Backend development (Java & Spring Boot) for medication management + patient care coordination.',
+            image: '/images/pcc-logo.jpg',
+            projectLink: '/experience/pointclickcare',
         },
         {
-            title: 'EasyChat',
-            subtitle: 'MongoDB, Express.js, React, Node.js, Typescript, Socket.IO',
+            title: 'Geotab (Internship)',
+            subtitle: 'Software Developer ⋅ May 2024 - Aug 2024',
             description:
-                'A comprehensive instant messaging application featuring a RESTful backend and modern UI.',
-            image: '/images/easychat-ss.jpg',
-            projectLink: 'https://github.com/jaeyonglee3/EasyChat',
+                'Full-stack development (Go, Node.js, React) for the Intelligent Transportation Analytics product.',
+            image: '/images/geotab-pic.jpg',
+            projectLink: '/experience/geotab',
         },
         {
-            title: 'ScanEats',
-            subtitle: 'Python, TensorFlow, Flask, React',
+            title: 'U of T Research Lab',
+            subtitle: 'Software Developer ⋅ May 2023 - Mar 2024',
             description:
-                'A full-stack ML app built on a CNN I trained w/ TensorFlow to rate fruit freshness using the webcam.',
-            image: '/images/scaneats.jpg',
-            projectLink: 'https://github.com/jaeyonglee3/ScanEats',
+                'Built AI tools for students, deploying and using them to collect data and feedback for research.',
+            image: '/images/iai-logo.jpg',
+            githubLink: 'https://github.com/example/fittrack',
+            projectLink: '/experience/iai',
         },
         {
-            title: 'MelodyMatch',
-            subtitle: 'Python, Plotly, Bottle Web Framework, Tkinter',
+            title: 'U of T CS Department',
+            subtitle: 'Software Developer ⋅ May 2023 - Aug 2023',
             description:
-                'Uses Spotify account data + a decision tree recommendation algorithm to make excellent music recommendations.',
-            image: '/images/melody-logo.jpg',
-            projectLink: 'https://github.com/jaeyonglee3/MelodyMatch',
+                "Worked on Prof. David Liu's Students Developing Software (SDS) team on the Courseography project.",
+            image: '/images/sds-logo.jpg',
+            projectLink: '/experience/sds',
         },
         {
-            title: 'JoltEd Chrome Extension',
-            subtitle: 'JavaScript, React, Chrome API, OpenAI API',
+            title: 'Serv2U (Startup)',
+            subtitle: 'Full-Stack Developer ⋅ Jan 2023 - May 2023',
             description:
-                'Instant personalized explanation generation + example provisioning of educational content on any webpage.',
-            image: '/images/jolted-ss.jpg',
-            projectLink:
-                'https://github.com/ACCELab-UofT/JoltEd-Chrome-Extension?tab=readme-ov-file',
-        },
-        {
-            title: 'Rotman Commerce HR Association Website',
-            subtitle: 'HTML, CSS, JavaScript',
-            description:
-                'A website created for the Rotman Commerce Human Resources student group at the University of Toronto.',
-            image: '/images/rchra-site.jpg',
-            projectLink: 'https://github.com/jaeyonglee3/RCHRA-Website',
-        },
-        {
-            title: 'Habitual (iOS App)',
-            subtitle: 'Swift',
-            description:
-                'Helps users create and track daily habits, set repetition goals, and monitor weekly progress.',
-            image: '/images/habitual.jpg',
-            projectLink: 'https://github.com/jaeyonglee3/habitual-app',
+                'Helped develop an online marketplace for people to order meals made by homecooks and have them delivered to their doorstep.',
+            image: '/images/serv2u.jpg',
+            projectLink: '/experience/pointclickcare',
         },
         // {
         //     title: 'Coming Soon!',
@@ -168,14 +152,14 @@ export default function Projects() {
 
     return (
         <Container centerContent pt="100px" pb="60px" maxWidth="900px" h="100vh">
-            <Heading mb="6">projects</Heading>
+            <Heading mb="6">experience</Heading>
             {/* <Text mb="6" fontSize="lg" textAlign="center">
                 Here, I've selected a few of my projects and experiences that I'm most proud of.
             </Text> */}
 
             <SimpleGrid spacing="20px" minChildWidth="300px" maxW="90vw">
                 {cards.map((card, index) => (
-                    <ProjectCard key={index} {...card} onImageClick={handleImageClick} />
+                    <ExperienceCard key={index} {...card} onImageClick={handleImageClick} />
                 ))}
             </SimpleGrid>
 

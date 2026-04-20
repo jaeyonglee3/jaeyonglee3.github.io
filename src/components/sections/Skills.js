@@ -110,7 +110,7 @@ export default function Skills() {
     // };
 
     return (
-        <Container maxWidth="85vw" name="Skills" centerContent py="60px">
+        <Container maxWidth="900px" centerContent pt="100px" pb="60px">
             <Heading mb="6">Skills</Heading>
             <HStack align="center">
                 <Card {...cardStyle}>

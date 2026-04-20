@@ -1,28 +1,18 @@
-import {
-    Container,
-    Heading,
-    Text,
-    VStack,
-    Box,
-    HStack,
-    Image,
-    Flex,
-    useColorMode,
-} from '@chakra-ui/react';
+import { Container, Heading, Text, VStack, Box, Image, Flex, useColorMode } from '@chakra-ui/react';
 export default function About() {
     const { colorMode } = useColorMode();
 
     return (
-        <Container maxWidth="85vw" name="About Me" centerContent py="60px">
-            <Heading mb="6">About Me</Heading>
+        <Container maxWidth="900px" centerContent pt="100px" pb="60px" h="100vh">
+            <Heading mb="6">biography</Heading>
 
-            <HStack spacing="40px" align="center" flexWrap="wrap" justify="center">
+            <VStack spacing="40px" align="center" flexWrap="wrap" justify="center">
                 <Box textAlign="center">
                     <Image
                         src="/headshot.jpg"
                         alt="dang the image won't load :( Imagine a beautiful sunset!"
                         borderRadius="xl"
-                        boxSize={['225px', '300px']}
+                        boxSize={['215px', '290px']}
                         objectFit="cover"
                         shadow="lg"
                     />
@@ -129,7 +119,7 @@ export default function About() {
                         ))}
                     </VStack>
                 </Box>
-            </HStack>
+            </VStack>
         </Container>
     );
 }

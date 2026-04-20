@@ -1,0 +1,1 @@
+This project is a simple online portfolio website for a Software Engineer and 4th year computer science student at the University of Toronto. It will showcase their projects, work experiences, a short about me page, and a page for images taken on their camera.

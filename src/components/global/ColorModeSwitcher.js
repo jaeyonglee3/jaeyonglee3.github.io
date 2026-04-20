@@ -7,7 +7,7 @@ export const ColorModeSwitcher = props => {
     const SwitchIcon = useColorModeValue(FaMoon, FaSun);
 
     return (
-        <Tooltip label={`Switch to ${text} mode`} hasArrow>
+        <Tooltip hasArrow>
             <IconButton
                 size="md"
                 fontSize="lg"

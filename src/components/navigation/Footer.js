@@ -1,29 +1,22 @@
-import {
-    Box,
-    Flex,
-    Text,
-    Button,
-    useColorMode,
-    VStack,
-    Link,
-    useBreakpointValue,
-} from '@chakra-ui/react';
-import { animateScroll as scroll } from 'react-scroll';
+import { Box, Flex, Text, Button, useColorMode, VStack, Link } from '@chakra-ui/react';
 import { FiArrowUpCircle } from 'react-icons/fi';
 
 export default function Footer() {
     const { colorMode } = useColorMode();
 
     return (
-        <Box w="100%" bg={colorMode === 'dark' ? '#0a0b0f' : 'F7FAFC'} py={4} px={6} mt="auto">
+        <Box w="100%" py={4} mt="auto">
             <Flex
                 direction={{ base: 'column', md: 'row' }}
                 align="center"
                 justify="space-between"
                 gap={2}
+                maxW="900px"
+                mx="auto"
+                px="24px"
             >
                 <VStack spacing={1} align="start">
-                    <Text fontSize="sm">Site last updated: June 2025</Text>
+                    <Text fontSize="sm">last updated: June 2025</Text>
                     <Link
                         href="https://github.com/jaeyonglee3/personal-website"
                         isExternal
@@ -38,7 +31,7 @@ export default function Footer() {
                 <VStack spacing={1} align="end">
                     <Button
                         variant="ghost"
-                        onClick={() => scroll.scrollToTop({ duration: 700 })}
+                        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                         rightIcon={<FiArrowUpCircle fontSize={20} />}
                         size={'sm'}
                     >

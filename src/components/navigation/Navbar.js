@@ -1,11 +1,15 @@
 import { Box, Flex, Divider, HStack, Button, Spacer, useColorMode } from '@chakra-ui/react';
 import { ColorModeSwitcher } from '../global/ColorModeSwitcher';
-import { Link as ScrollLink } from 'react-scroll';
-import { animateScroll as scroll } from 'react-scroll';
-import SocialMedia from '../global/SocialMedia';
+import { Link as RouterLink } from 'react-router-dom';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 
-const menuItems = ['About Me', 'Projects & Experience', 'Skills'];
+const menuItems = [
+    { label: 'biography', to: '/biography' },
+    { label: 'projects', to: '/projects' },
+    { label: 'experience', to: '/experience' },
+    // { label: 'photos', to: '/skills' },
+    // { label: 'essays', to: '/skills' },
+];
 
 export default function Navbar() {
     const { colorMode } = useColorMode();
@@ -17,41 +21,57 @@ export default function Navbar() {
         <Box
             width="100vw"
             position="fixed"
-            bg={colorMode === 'dark' ? '#0a0b0f' : '#F7FAFC'}
             zIndex={2}
+            bg={colorMode === 'dark' ? '#0a0b0f' : '#F7FAFC'}
         >
-            <Flex as="nav" px="20px" py="12px" alignItems="center">
+            <Flex as="nav" px="24px" py="10px" alignItems="center" maxW="900px" mx="auto">
                 <Button
+                    as={RouterLink}
+                    to="/"
                     fontWeight="normal"
                     variant={'ghost'}
-                    onClick={() => scroll.scrollToTop({ duration: 500 })}
+                    size={'sm'}
+                    fontSize="md"
                 >
-                    Jaeyong Lee
+                    jaeyong's portfolio
                 </Button>
 
-                <Divider orientation="vertical" height="24px" mx="12px" borderColor="gray.500" />
+                <Divider orientation="vertical" height="20px" mx="10px" borderColor="gray.500" />
 
-                <HStack spacing={'12px'}>
+                <HStack spacing={'4px'}>
                     {menuItems.map(item => (
-                        <ScrollLink key={item} to={item} smooth duration={500} offset={-80}>
-                            <Button variant={'ghost'} size={'md'}>
-                                {item}
-                            </Button>
-                        </ScrollLink>
+                        <Button
+                            key={item.label}
+                            as={RouterLink}
+                            to={item.to}
+                            variant={'ghost'}
+                            size={'sm'}
+                            fontSize="md"
+                        >
+                            {item.label}
+                        </Button>
                     ))}
                     <Button
                         onClick={openResume}
                         variant={'ghost'}
-                        rightIcon={<FaExternalLinkAlt fontSize={12} />}
+                        size={'sm'}
+                        fontSize="md"
+                        rightIcon={<FaExternalLinkAlt fontSize={10} />}
                     >
-                        My Resume
+                        resume
                     </Button>
                 </HStack>
 
                 <Spacer />
-                <SocialMedia fontSize="20px" />
                 <ColorModeSwitcher />
             </Flex>
+            {/* Subtle line showing the content column width */}
+            <Box maxW="900px" mx="auto" px="24px">
+                <Box
+                    borderBottom="1px solid"
+                    borderColor={colorMode === 'dark' ? 'whiteAlpha.500' : 'blackAlpha.150'}
+                />
+            </Box>
         </Box>
     );
 }
