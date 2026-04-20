@@ -16,7 +16,7 @@ export default function Footer() {
                 px="24px"
             >
                 <VStack spacing={1} align="start">
-                    <Text fontSize="sm">last updated: June 2025</Text>
+                    <Text fontSize="sm">last updated: April 2026</Text>
                     <Link
                         href="https://github.com/jaeyonglee3/personal-website"
                         isExternal
