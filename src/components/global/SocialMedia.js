@@ -1,7 +1,7 @@
 import { HStack, Link, Text, Divider, Icon, useToast } from '@chakra-ui/react';
 import { AiFillLinkedin, AiFillGithub, AiOutlineMail } from 'react-icons/ai';
 
-const emailAddress = 'jaeyong.lee@mail.utoronto.ca';
+const emailAddress = 'jaeyonglee054@gmail.com';
 
 const socialLinks = [
     {
@@ -73,17 +73,10 @@ export default function SocialMedia() {
     return (
         <HStack
             spacing={4}
-            divider={
-                <Divider orientation="vertical" h="16px" borderColor="gray.500" />
-            }
+            divider={<Divider orientation="vertical" h="16px" borderColor="gray.500" />}
         >
             {socialLinks.map((social, i) => (
-                <SocialItem
-                    key={i}
-                    href={social.href}
-                    isEmail={social.isEmail}
-                    onCopy={handleCopy}
-                >
+                <SocialItem key={i} href={social.href} isEmail={social.isEmail} onCopy={handleCopy}>
                     <Icon as={social.icon} fontSize="18px" />
                     <Text fontSize="sm" letterSpacing="wide">
                         {social.label}
