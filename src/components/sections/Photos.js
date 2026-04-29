@@ -4,12 +4,12 @@ import { useState, useEffect, useCallback } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 const photos = [
-    { src: '/photos/blossoms.jpg', caption: 'Cherry blossoms on campus!' },
+    { src: '/photos/blossoms.jpg', caption: 'Cherry blossoms' },
     { src: '/photos/campus.jpg', caption: 'The Toronto Magnetic and Meteorological Observatory' },
     { src: '/photos/gerstein.jpg', caption: 'Gerstein Library' },
-    { src: '/photos/square.jpg', caption: '' },
-    { src: '/photos/benjamin.jpg', caption: '' },
-    { src: '/photos/trinity.jpg', caption: '' },
+    { src: '/photos/square.jpg', caption: 'Trinity College Quadrangle' },
+    { src: '/photos/benjamin.jpg', caption: 'A paint store in downtown Toronto' },
+    { src: '/photos/trinity.jpg', caption: 'Trinity College, University of Toronto' },
     // { src: '/photos/sunset.jpg', caption: 'A sunset on the beach in Georgian Bay, Ontario' },
     // { src: '/photos/puppy.jpg', caption: 'My dog when she was a puppy' },
     // {
