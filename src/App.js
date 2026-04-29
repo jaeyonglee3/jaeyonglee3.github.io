@@ -7,6 +7,7 @@ import About from './components/sections/About';
 import Skills from './components/sections/Skills';
 import Projects from './components/sections/Projects';
 import Experience from './components/sections/Experience';
+import Photos from './components/sections/Photos';
 import Footer from './components/navigation/Footer';
 import theme from './theme';
 import ExperienceDetail from './components/sections/ExperienceDetail';
@@ -41,53 +42,61 @@ function GridBackground() {
     );
 }
 
+function PageShell({ children }) {
+    return (
+        <Box display="flex" flexDirection="column" minH="100vh">
+            <NavBar />
+            {children}
+            <Footer />
+        </Box>
+    );
+}
+
 function Home() {
     return (
-        <>
-            <NavBar />
+        <PageShell>
             <Intro />
-            <Footer />
-        </>
+        </PageShell>
     );
 }
 
 function AboutPage() {
     return (
-        <>
-            <NavBar />
+        <PageShell>
             <About />
-            <Footer />
-        </>
+        </PageShell>
     );
 }
 
 function ProjectsPage() {
     return (
-        <>
-            <NavBar />
+        <PageShell>
             <Projects />
-            <Footer />
-        </>
+        </PageShell>
     );
 }
 
 function ExperiencePage() {
     return (
-        <>
-            <NavBar />
+        <PageShell>
             <Experience />
-            <Footer />
-        </>
+        </PageShell>
     );
 }
 
 function SkillsPage() {
     return (
-        <>
-            <NavBar />
+        <PageShell>
             <Skills />
-            <Footer />
-        </>
+        </PageShell>
+    );
+}
+
+function PhotosPage() {
+    return (
+        <PageShell>
+            <Photos />
+        </PageShell>
     );
 }
 
@@ -105,6 +114,7 @@ function App() {
                             <Route path="/projects" element={<ProjectsPage />} />
                             <Route path="/experience" element={<ExperiencePage />} />
                             <Route path="/skills" element={<SkillsPage />} />
+                            <Route path="/photos" element={<PhotosPage />} />
                             <Route path="/experience/:slug" element={<ExperienceDetail />} />
                         </Routes>
                     </Box>

@@ -1,9 +1,7 @@
 import {
-    Card,
-    CardBody,
-    CardFooter,
-    CardHeader,
+    Box,
     Container,
+    Flex,
     Heading,
     Image,
     Modal,
@@ -12,78 +10,72 @@ import {
     ModalBody,
     ModalCloseButton,
     useDisclosure,
-    SimpleGrid,
     Text,
+    VStack,
     useColorMode,
+    Button,
 } from '@chakra-ui/react';
+import { Helmet } from 'react-helmet';
 import { useState } from 'react';
 import { FaGithub } from 'react-icons/fa';
-import { Button } from '@chakra-ui/react';
 
 const ProjectCard = ({ title, subtitle, description, image, projectLink, onImageClick }) => {
     const { colorMode } = useColorMode();
 
-    const cardStyle = {
-        borderRadius: 'xl',
-        overflow: 'hidden',
-        shadow: 'md',
-        bg: colorMode === 'dark' ? '#1f222e' : '#c8dcea',
-        backdropFilter: 'blur(1px)',
-    };
-
     return (
-        <Card sx={cardStyle}>
+        <Flex overflow="hidden" w="100%" h="190px">
             <Image
                 src={image}
                 alt={title}
                 objectFit="cover"
-                h="160px"
-                w="100%"
+                w={['130px', '230px', '300px']}
+                minW={['130px', '230px', '300px']}
                 cursor="pointer"
                 onClick={() => onImageClick(image, title)}
+                flexShrink={0}
+                borderRadius="xl"
             />
 
-            <CardHeader pb="0">
-                <Heading size="md">{title}</Heading>
-                {subtitle && (
-                    <Text fontSize="13px" mt="1">
-                        {subtitle}
+            <Flex
+                direction="column"
+                justify="space-between"
+                p={['14px', '20px']}
+                flex="1"
+                overflow="hidden"
+            >
+                <Box>
+                    <Heading size="md">{title}</Heading>
+                    {subtitle && (
+                        <Text
+                            fontSize="sm"
+                            mt="6px"
+                            color={colorMode === 'dark' ? 'gray.400' : 'gray.600'}
+                            letterSpacing="wide"
+                        >
+                            {subtitle}
+                        </Text>
+                    )}
+                    <Text fontSize="sm" mt="10px" lineHeight="tall">
+                        {description}
                     </Text>
-                )}
-            </CardHeader>
+                </Box>
 
-            <CardBody pt="10px" fontSize="sm">
-                <Text>{description}</Text>
-            </CardBody>
-
-            <CardFooter pt="10px">
-                {
-                    projectLink.startsWith('http') && (
+                {projectLink.startsWith('http') && (
+                    <Box mt="14px">
                         <Button
                             as="a"
                             href={projectLink}
+                            target="_blank"
                             leftIcon={<FaGithub />}
                             colorScheme="gray"
                             size="sm"
                         >
-                            {'GitHub'}
+                            GitHub
                         </Button>
-                    )
-
-                    // Use below when experience details are ready
-                    // <Button
-                    //     as="a"
-                    //     href={projectLink}
-                    //     target={projectLink.startsWith('http') ? '_blank' : '_self'}
-                    //     leftIcon={projectLink.startsWith('http') ? <FaGithub /> : <FaArrowRightLong />}
-                    //     colorScheme="gray"
-                    //     size="sm"
-                    // >
-                    //     {projectLink.startsWith('http') ? 'GitHub' : 'Read More'}
-                    // </Button>
-                }
-            </CardFooter>
-        </Card>
+                    </Box>
+                )}
+            </Flex>
+        </Flex>
     );
 };
 
@@ -156,28 +148,23 @@ export default function Projects() {
             image: '/images/habitual.jpg',
             projectLink: 'https://github.com/jaeyonglee3/habitual-app',
         },
-        // {
-        //     title: 'Coming Soon!',
-        //     subtitle: 'As of June 2025',
-        //     description:
-        //         "I'm working on a new full-stack project that implements RAG techniques for personalized learning experiences.",
-        //     image: '/images/coming-soon.jpg',
-        //     projectLink: '',
-        // },
     ];
 
     return (
-        <Container centerContent pt="100px" pb="60px" maxWidth="900px" h="100vh">
-            <Heading mb="6">projects</Heading>
-            {/* <Text mb="6" fontSize="lg" textAlign="center">
-                Here, I've selected a few of my projects and experiences that I'm most proud of.
-            </Text> */}
+        <>
+        <Helmet>
+            <title>Projects | Jaeyong Lee</title>
+        </Helmet>
+        <Container centerContent pt="100px" pb="60px" maxWidth="900px">
+            <Text fontSize="3xl" fontWeight="bold" mb="6">
+                projects
+            </Text>
 
-            <SimpleGrid spacing="20px" minChildWidth="300px" maxW="90vw">
+            <VStack spacing="36px" align="stretch" w="100%">
                 {cards.map((card, index) => (
                     <ProjectCard key={index} {...card} onImageClick={handleImageClick} />
                 ))}
-            </SimpleGrid>
+            </VStack>
 
             <Modal isOpen={isOpen} onClose={onClose} isCentered size="xl">
                 <ModalOverlay bg="blackAlpha.800" backdropFilter="blur(3px)" />
@@ -196,5 +183,6 @@ export default function Projects() {
                 </ModalContent>
             </Modal>
         </Container>
+        </>
     );
 }

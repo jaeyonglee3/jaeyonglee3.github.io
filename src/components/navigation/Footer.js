@@ -16,7 +16,9 @@ export default function Footer() {
                 px="24px"
             >
                 <VStack spacing={1} align="start">
-                    <Text fontSize="sm">last updated: April 2026</Text>
+                    <Text fontSize="sm" fontWeight={'bold'}>
+                        last update: 04/2026
+                    </Text>
                     <Link
                         href="https://github.com/jaeyonglee3/personal-website"
                         isExternal
@@ -37,9 +39,9 @@ export default function Footer() {
                     >
                         Back to Top
                     </Button>
-                    <Text fontSize="sm">
+                    {/* <Text fontSize="sm">
                         Feel free to contact me for anything, I always love to chat!
-                    </Text>
+                    </Text> */}
                 </VStack>
             </Flex>
         </Box>

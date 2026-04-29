@@ -5,10 +5,9 @@ import { FaExternalLinkAlt } from 'react-icons/fa';
 
 const menuItems = [
     { label: 'biography', to: '/biography' },
-    { label: 'projects', to: '/projects' },
     { label: 'experience', to: '/experience' },
-    // { label: 'photos', to: '/skills' },
-    // { label: 'essays', to: '/skills' },
+    { label: 'projects', to: '/projects' },
+    { label: 'photos', to: '/photos' },
 ];
 
 export default function Navbar() {
@@ -31,7 +30,7 @@ export default function Navbar() {
                     fontWeight="normal"
                     variant={'ghost'}
                     size={'sm'}
-                    fontSize="md"
+                    fontSize="sm"
                 >
                     jaeyong's portfolio
                 </Button>
@@ -46,7 +45,7 @@ export default function Navbar() {
                             to={item.to}
                             variant={'ghost'}
                             size={'sm'}
-                            fontSize="md"
+                            fontSize="sm"
                         >
                             {item.label}
                         </Button>
@@ -69,7 +68,7 @@ export default function Navbar() {
             <Box maxW="900px" mx="auto" px="24px">
                 <Box
                     borderBottom="1px solid"
-                    borderColor={colorMode === 'dark' ? 'whiteAlpha.500' : 'blackAlpha.150'}
+                    borderColor={colorMode === 'dark' ? 'whiteAlpha.300' : 'blackAlpha.600'}
                 />
             </Box>
         </Box>

@@ -5,25 +5,13 @@ import { ArrowBackIcon } from '@chakra-ui/icons';
 const experienceData = {
     pointclickcare: {
         title: 'Software Engineer Intern @ PointClickCare',
-        image: '/images/pointclickcare.jpg',
+        image: '/images/pcc-logo.jpg',
         content:
             'From January 2025 to August 2025, I worked as a Software Engineer Intern at PointClickCare, where I contributed to the development of healthcare software solutions. My role involved collaborating with cross-functional teams to enhance user experience and improve system performance.',
     },
     geotab: {
         title: 'Software Developer Intern @ Geotab',
-        image: '/images/geotab.jpg',
-        content:
-            'From January 2025 to August 2025, I worked as a Software Engineer Intern at PointClickCare, where I contributed to the development of healthcare software solutions. My role involved collaborating with cross-functional teams to enhance user experience and improve system performance.',
-    },
-    iai: {
-        title: 'Software Developer',
-        image: '/images/iai.jpg',
-        content:
-            'From January 2025 to August 2025, I worked as a Software Engineer Intern at PointClickCare, where I contributed to the development of healthcare software solutions. My role involved collaborating with cross-functional teams to enhance user experience and improve system performance.',
-    },
-    sds: {
-        title: 'Software Developer',
-        image: '/images/sds.jpg',
+        image: '/images/geotab-pic.jpg',
         content:
             'From January 2025 to August 2025, I worked as a Software Engineer Intern at PointClickCare, where I contributed to the development of healthcare software solutions. My role involved collaborating with cross-functional teams to enhance user experience and improve system performance.',
     },

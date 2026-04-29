@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet';
 import {
     Box,
     Card,
@@ -110,7 +111,11 @@ export default function Skills() {
     // };
 
     return (
-        <Container maxWidth="900px" centerContent pt="100px" pb="60px">
+        <>
+            <Helmet>
+                <title>Skills | Jaeyong Lee</title>
+            </Helmet>
+            <Container maxWidth="900px" centerContent pt="100px" pb="60px">
             <Heading mb="6">Skills</Heading>
             <HStack align="center">
                 <Card {...cardStyle}>
@@ -194,6 +199,7 @@ export default function Skills() {
                     </VStack> */}
                 </Card>
             </HStack>
-        </Container>
+            </Container>
+        </>
     );
 }

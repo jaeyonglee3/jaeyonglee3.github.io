@@ -16,7 +16,7 @@ const theme = extendTheme({
     styles: {
         global: {
             'html, body': {
-                fontFamily: 'Manrope, sans-serif',
+                fontFamily: `'Inter', sans-serif`,
                 fontWeight: 300,
                 fontStyle: 'normal',
                 bg: 'bg',
