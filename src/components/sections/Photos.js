@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet';
 import { Box, Container, Image, Text, IconButton, CloseButton, Flex } from '@chakra-ui/react';
 import { useState, useEffect, useCallback } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import FadeIn from '../global/FadeIn';
 
 const photos = [
     { src: '/photos/blossoms.JPG', caption: 'Cherry blossoms' },
@@ -46,19 +47,18 @@ export default function Photos() {
                 <title>Photos | Jaeyong Lee</title>
             </Helmet>
             <Container maxWidth="900px" pt="100px" pb="60px" px="24px">
-                <Text fontSize="3xl" fontWeight="bold" mb="2" textAlign="center">
-                    photos
-                </Text>
-                {/* <Text fontSize="md" mb="8" textAlign="center">
-                    An assortment of pictures I've taken, some on my Fujifilm X-T3, which I
-                    purchased recently second-hand hoping to learn the basics of photography. Hoping
-                    to add many more soon!
-                </Text> */}
-                <Text fontSize="md" mb="8" textAlign="center">
-                    An assortment of pictures I've taken on my Fujifilm X-T3, which I purchased
-                    recently second-hand hoping to learn the basics of photography. Hoping to add
-                    more soon!
-                </Text>
+                <FadeIn delay={0}>
+                    <Text fontSize="3xl" fontWeight="bold" mb="2" textAlign="center">
+                        photos
+                    </Text>
+                </FadeIn>
+                <FadeIn delay={0.08}>
+                    <Text fontSize="md" mb="8" textAlign="center">
+                        An assortment of pictures I've taken on my Fujifilm X-T3, which I purchased
+                        recently second-hand hoping to learn the basics of photography. Hoping to add
+                        more soon!
+                    </Text>
+                </FadeIn>
 
                 {photos.length === 0 ? (
                     <Text textAlign="center" opacity={0.4} fontSize="sm" mt="20">
@@ -67,11 +67,14 @@ export default function Photos() {
                 ) : (
                     <Box sx={{ columns: { base: '1', sm: '2', md: '3' }, columnGap: '12px' }}>
                         {photos.map((photo, i) => (
-                            <Box
+                            <FadeIn
                                 key={i}
+                                delay={i * 0.05}
+                                style={{ breakInside: 'avoid', marginBottom: '12px' }}
+                            >
+                            <Box
                                 role="group"
                                 position="relative"
-                                sx={{ breakInside: 'avoid', marginBottom: '12px' }}
                                 cursor="pointer"
                                 onClick={() => setLightboxIndex(i)}
                                 borderRadius="lg"
@@ -109,6 +112,7 @@ export default function Photos() {
                                     </Text>
                                 </Box>
                             </Box>
+                            </FadeIn>
                         ))}
                     </Box>
                 )}

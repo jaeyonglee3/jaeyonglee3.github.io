@@ -18,6 +18,7 @@ import {
 import { Helmet } from 'react-helmet';
 import { useState } from 'react';
 import { FaGithub } from 'react-icons/fa';
+import FadeIn from '../global/FadeIn';
 
 const ProjectCard = ({ title, subtitle, description, image, projectLink, onImageClick }) => {
     const { colorMode } = useColorMode();
@@ -156,13 +157,17 @@ export default function Projects() {
             <title>Projects | Jaeyong Lee</title>
         </Helmet>
         <Container centerContent pt="100px" pb="60px" maxWidth="900px">
-            <Text fontSize="3xl" fontWeight="bold" mb="6">
-                projects
-            </Text>
+            <FadeIn delay={0}>
+                <Text fontSize="3xl" fontWeight="bold" mb="6">
+                    projects
+                </Text>
+            </FadeIn>
 
             <VStack spacing="36px" align="stretch" w="100%">
                 {cards.map((card, index) => (
-                    <ProjectCard key={index} {...card} onImageClick={handleImageClick} />
+                    <FadeIn key={index} delay={index * 0.07} style={{ width: '100%' }}>
+                        <ProjectCard {...card} onImageClick={handleImageClick} />
+                    </FadeIn>
                 ))}
             </VStack>
 

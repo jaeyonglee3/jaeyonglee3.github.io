@@ -11,6 +11,7 @@ import {
 } from '@chakra-ui/react';
 import { Helmet } from 'react-helmet';
 import { FaArrowRight } from 'react-icons/fa';
+import FadeIn from '../global/FadeIn';
 
 const ExperienceCard = ({ title, roleName, location, dates, description, image, detailLink }) => {
     const { colorMode } = useColorMode();
@@ -178,13 +179,17 @@ export default function Experience() {
                 <title>Experience | Jaeyong Lee</title>
             </Helmet>
             <Container centerContent pt="100px" pb="60px" maxWidth="900px">
-                <Text fontSize="3xl" fontWeight="bold" mb="6">
-                    experience
-                </Text>
+                <FadeIn delay={0}>
+                    <Text fontSize="3xl" fontWeight="bold" mb="6">
+                        experience
+                    </Text>
+                </FadeIn>
 
                 <VStack spacing="36px" align="stretch" w="100%">
                     {cards.map((card, index) => (
-                        <ExperienceCard key={index} {...card} />
+                        <FadeIn key={index} delay={index * 0.07} style={{ width: '100%' }}>
+                            <ExperienceCard {...card} />
+                        </FadeIn>
                     ))}
                 </VStack>
             </Container>
