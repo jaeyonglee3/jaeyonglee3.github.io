@@ -135,7 +135,7 @@ export default function Experience() {
             title: 'Geotab',
             roleName: 'Software Developer Intern',
             location: 'Toronto, ON',
-            dates: 'May 2024 – Aug 2024',
+            dates: 'May 2024 – Dec 2024',
             description:
                 'Full-stack development (Go, Node.js, React) for the Intelligent Transportation Analytics product.',
             image: '/images/geotab-logo.jpg',
