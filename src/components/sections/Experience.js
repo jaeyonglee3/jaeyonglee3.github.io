@@ -17,15 +17,24 @@ const ExperienceCard = ({ title, roleName, location, dates, description, image, 
     const { colorMode } = useColorMode();
 
     return (
-        <Flex overflow="hidden" w="100%" h="190px">
+        <Flex
+            overflow="hidden"
+            w="100%"
+            h={{ base: 'auto', md: '190px' }}
+            direction={{ base: 'column', md: 'row' }}
+        >
             <Image
                 src={image}
                 alt={title}
                 objectFit="cover"
-                w={['130px', '230px', '300px']}
-                minW={['130px', '230px', '300px']}
+                w={{ base: '100%', md: '300px' }}
+                minW={{ base: 'unset', md: '300px' }}
+                h={{ base: '180px', md: '100%' }}
                 flexShrink={0}
-                borderRadius="xl"
+                borderTopLeftRadius="xl"
+                borderTopRightRadius="xl"
+                borderBottomLeftRadius={{ base: 0, md: 'xl' }}
+                borderBottomRightRadius={{ base: 0, md: 'xl' }}
             />
 
             <Flex
